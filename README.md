@@ -18,7 +18,7 @@ This system analyzes padel match video footage and automatically:
 
 | Tool | Purpose |
 |------|---------|
-| Python 3.10+ | Core language |
+| Python 3.10.13 | Core language |
 | YOLOv8n (Ultralytics) | Object detection (players, ball, racket) |
 | OpenCV | Video processing and annotation |
 | SciPy (Hungarian Algorithm) | Optimal player tracking assignment |
