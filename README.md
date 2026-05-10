@@ -29,6 +29,7 @@ This system analyzes padel match video footage and automatically:
 ---
 
 ## Project Structure
+
 padel_shot_classification_system/
 │
 ├── app/
@@ -92,6 +93,7 @@ The filename must be exactly sample_video.mp4
 ### Step 5: Run the System
 
 python -m app.main
+
 That's it. All output files will be saved automatically in data/output/.
 
 
