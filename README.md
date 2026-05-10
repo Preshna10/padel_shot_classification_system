@@ -62,11 +62,10 @@ padel_shot_classification_system/
 ## Setup Instructions
 
 ### Step 1: Clone the Repository
-```bash
 git clone https://github.com/YOUR_USERNAME/padel-shot-classification-system.git
 cd padel-shot-classification-system 
 
-Step 2: Create Virtual Environment
+###Step 2: Create Virtual Environment
 python -m venv venv
 
 Activate it:
