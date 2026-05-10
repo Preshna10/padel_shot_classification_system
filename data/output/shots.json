@@ -1,0 +1,258 @@
+[
+  {
+    "frame": 4,
+    "timestamp_sec": 0.16,
+    "player_id": 3,
+    "shot_type": "forehand",
+    "ball_x": 758,
+    "ball_y": 718
+  },
+  {
+    "frame": 284,
+    "timestamp_sec": 11.36,
+    "player_id": 4,
+    "shot_type": "serve_or_smash",
+    "ball_x": 465,
+    "ball_y": 405
+  },
+  {
+    "frame": 352,
+    "timestamp_sec": 14.08,
+    "player_id": 4,
+    "shot_type": "serve_or_smash",
+    "ball_x": 700,
+    "ball_y": 417
+  },
+  {
+    "frame": 381,
+    "timestamp_sec": 15.24,
+    "player_id": 4,
+    "shot_type": "forehand",
+    "ball_x": 742,
+    "ball_y": 385
+  },
+  {
+    "frame": 569,
+    "timestamp_sec": 22.76,
+    "player_id": 3,
+    "shot_type": "forehand",
+    "ball_x": 1086,
+    "ball_y": 626
+  },
+  {
+    "frame": 822,
+    "timestamp_sec": 32.88,
+    "player_id": 3,
+    "shot_type": "forehand",
+    "ball_x": 947,
+    "ball_y": 478
+  },
+  {
+    "frame": 3688,
+    "timestamp_sec": 147.52,
+    "player_id": 2,
+    "shot_type": "backhand",
+    "ball_x": 1210,
+    "ball_y": 547
+  },
+  {
+    "frame": 3905,
+    "timestamp_sec": 156.2,
+    "player_id": 4,
+    "shot_type": "forehand",
+    "ball_x": 1013,
+    "ball_y": 215
+  },
+  {
+    "frame": 4577,
+    "timestamp_sec": 183.08,
+    "player_id": 2,
+    "shot_type": "forehand",
+    "ball_x": 610,
+    "ball_y": 572
+  },
+  {
+    "frame": 6058,
+    "timestamp_sec": 242.32,
+    "player_id": 1,
+    "shot_type": "serve_or_smash",
+    "ball_x": 907,
+    "ball_y": 550
+  },
+  {
+    "frame": 6277,
+    "timestamp_sec": 251.08,
+    "player_id": 1,
+    "shot_type": "backhand",
+    "ball_x": 1237,
+    "ball_y": 742
+  },
+  {
+    "frame": 6477,
+    "timestamp_sec": 259.08,
+    "player_id": 1,
+    "shot_type": "serve_or_smash",
+    "ball_x": 1093,
+    "ball_y": 690
+  },
+  {
+    "frame": 6516,
+    "timestamp_sec": 260.64,
+    "player_id": 1,
+    "shot_type": "serve_or_smash",
+    "ball_x": 877,
+    "ball_y": 639
+  },
+  {
+    "frame": 6552,
+    "timestamp_sec": 262.08,
+    "player_id": 1,
+    "shot_type": "serve_or_smash",
+    "ball_x": 781,
+    "ball_y": 637
+  },
+  {
+    "frame": 6625,
+    "timestamp_sec": 265.0,
+    "player_id": 1,
+    "shot_type": "backhand",
+    "ball_x": 779,
+    "ball_y": 666
+  },
+  {
+    "frame": 6661,
+    "timestamp_sec": 266.44,
+    "player_id": 1,
+    "shot_type": "serve_or_smash",
+    "ball_x": 803,
+    "ball_y": 688
+  },
+  {
+    "frame": 6753,
+    "timestamp_sec": 270.12,
+    "player_id": 1,
+    "shot_type": "serve_or_smash",
+    "ball_x": 755,
+    "ball_y": 639
+  },
+  {
+    "frame": 6803,
+    "timestamp_sec": 272.12,
+    "player_id": 1,
+    "shot_type": "serve_or_smash",
+    "ball_x": 781,
+    "ball_y": 665
+  },
+  {
+    "frame": 6825,
+    "timestamp_sec": 273.0,
+    "player_id": 1,
+    "shot_type": "serve_or_smash",
+    "ball_x": 801,
+    "ball_y": 592
+  },
+  {
+    "frame": 6997,
+    "timestamp_sec": 279.88,
+    "player_id": 1,
+    "shot_type": "backhand",
+    "ball_x": 1100,
+    "ball_y": 646
+  },
+  {
+    "frame": 7050,
+    "timestamp_sec": 282.0,
+    "player_id": 1,
+    "shot_type": "serve_or_smash",
+    "ball_x": 921,
+    "ball_y": 612
+  },
+  {
+    "frame": 7393,
+    "timestamp_sec": 295.72,
+    "player_id": 1,
+    "shot_type": "serve_or_smash",
+    "ball_x": 917,
+    "ball_y": 599
+  },
+  {
+    "frame": 7413,
+    "timestamp_sec": 296.52,
+    "player_id": 1,
+    "shot_type": "serve_or_smash",
+    "ball_x": 1067,
+    "ball_y": 616
+  },
+  {
+    "frame": 7437,
+    "timestamp_sec": 297.48,
+    "player_id": 1,
+    "shot_type": "serve_or_smash",
+    "ball_x": 1064,
+    "ball_y": 635
+  },
+  {
+    "frame": 7580,
+    "timestamp_sec": 303.2,
+    "player_id": 1,
+    "shot_type": "serve_or_smash",
+    "ball_x": 1033,
+    "ball_y": 604
+  },
+  {
+    "frame": 7609,
+    "timestamp_sec": 304.36,
+    "player_id": 1,
+    "shot_type": "serve_or_smash",
+    "ball_x": 1016,
+    "ball_y": 573
+  },
+  {
+    "frame": 7673,
+    "timestamp_sec": 306.92,
+    "player_id": 1,
+    "shot_type": "serve_or_smash",
+    "ball_x": 1091,
+    "ball_y": 665
+  },
+  {
+    "frame": 7800,
+    "timestamp_sec": 312.0,
+    "player_id": 1,
+    "shot_type": "serve_or_smash",
+    "ball_x": 854,
+    "ball_y": 619
+  },
+  {
+    "frame": 7924,
+    "timestamp_sec": 316.96,
+    "player_id": 1,
+    "shot_type": "serve_or_smash",
+    "ball_x": 782,
+    "ball_y": 689
+  },
+  {
+    "frame": 7986,
+    "timestamp_sec": 319.44,
+    "player_id": 1,
+    "shot_type": "serve_or_smash",
+    "ball_x": 824,
+    "ball_y": 713
+  },
+  {
+    "frame": 8006,
+    "timestamp_sec": 320.24,
+    "player_id": 1,
+    "shot_type": "serve_or_smash",
+    "ball_x": 784,
+    "ball_y": 617
+  },
+  {
+    "frame": 8070,
+    "timestamp_sec": 322.8,
+    "player_id": 2,
+    "shot_type": "forehand",
+    "ball_x": 797,
+    "ball_y": 366
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "total_shots": 32,
+  "shot_type_counts": {
+    "forehand": 7,
+    "serve_or_smash": 21,
+    "backhand": 4
+  },
+  "player_shot_counts": {
+    "Player 3": 3,
+    "Player 4": 4,
+    "Player 2": 3,
+    "Player 1": 22
+  }
+}
