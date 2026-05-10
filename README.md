@@ -62,10 +62,13 @@ padel_shot_classification_system/
 ## Setup Instructions
 
 ### Step 1: Clone the Repository
+
 git clone https://github.com/YOUR_USERNAME/padel-shot-classification-system.git
+
 cd padel-shot-classification-system 
 
 ### Step 2: Create Virtual Environment
+
 python -m venv venv
 
 Activate it:
@@ -77,6 +80,7 @@ Mac/Linux: source venv/bin/activate
 pip install -r requirements.txt
 
 ### Step 4: Add Input Video
+
 Place your padel match video inside:
 
 data/input/sample_video.mp4
