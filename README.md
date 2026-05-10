@@ -1,5 +1,4 @@
 # Padel Game Analytics — Shot Classification System
-### AI/ML Internship Assignment | Layman AI
 
 ---
 
