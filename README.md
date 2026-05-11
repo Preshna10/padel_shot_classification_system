@@ -124,37 +124,39 @@ Detects 3 classes per frame:
 
 3. Uses combined cost metric:
 
-a.70% weight on IoU (box overlap)
+     - 70% weight on IoU (box overlap)
 
-b.30% weight on centroid distance
+     - 30% weight on centroid distance
 
-c.Temporal consistency bonus: same player keeps same ID even when partially hidden
+     - Temporal consistency bonus: same player keeps same ID even when partially hidden
 
-d.Players remembered for up to 120 frames (~5 seconds) when temporarily lost
+     - Players remembered for up to 120 frames (~5 seconds) when temporarily lost
 
 ### Stage 3: Shot Classification (Rule-Based)
 
 a.When the ball is within 200 pixels of a player AND at least 20 frames
-
 have passed since the last shot, a shot is classified:
 
 Ball Position Relative to Player	Shot Type
 
-Above top 30% of player box (head/shoulder area)	Serve / Smash
+## Shot Classification Rules
 
-Ball center is to the right of player center	Forehand
+| Ball Position Relative to Player | Shot Type |
+|----------------------------------|------------|
+| Above top 30% of player box (head/shoulder area) | Serve / Smash |
+| Ball center is to the right of player center | Forehand |
+| Ball center is to the left of player center | Backhand |
 
-Ball center is to the left of player center	Backhand
 
 ### Stage 4: Output Generation
 
-a.Annotated video with colored bounding boxes per player
+  a.Annotated video with colored bounding boxes per player
 
-b.CSV and JSON files with shot type, frame, timestamp, player ID
+  b.CSV and JSON files with shot type, frame, timestamp, player ID
 
-c.Analytics summary JSON with total counts per shot type and per player
+  c.Analytics summary JSON with total counts per shot type and per player
 
-d.Bar chart PNG showing shot distribution
+  d.Bar chart PNG showing shot distribution
 
 ### Output Format
 
@@ -194,15 +196,15 @@ analytics_summary.json
 
 ### Bonus Features Completed ✅
 
-✅ Shot count analytics (forehand vs backhand vs serve/smash)
+  - Shot count analytics (forehand vs backhand vs serve/smash)
 
-✅ Visual overlay on output video (colored boxes, shot banner, labels)
+  - Visual overlay on output video (colored boxes, shot banner, labels)
 
-✅ Bar chart dashboard (shot_counts.png)
+  - Bar chart dashboard (shot_counts.png)
 
-✅ Rule-based shot direction logic (left/right/above relative to player)
+  -  Rule-based shot direction logic (left/right/above relative to player)
 
-✅ Cooldown logic to prevent duplicate shot detection
+  - Cooldown logic to prevent duplicate shot detection
 
 ### Demo Video
 Click here to watch the demo
@@ -213,54 +215,49 @@ YOLOv8n pretrained model used for detection.
 
 Download Model from Google Drive
 
-###Challenges Faced
+### Challenges Faced
 
-1.Ball Detection Gaps
+ 1. Ball Detection Gaps
 
-YOLOv8n (COCO) detects sports balls but padel balls are small and fast
+   - YOLOv8n (COCO) detects sports balls but padel balls are small and fast
 
-Solution: Lowered confidence threshold to 0.40 and used closest ball to player
+   - Solution: Lowered confidence threshold to 0.40 and used closest ball to player
 
-Player ID Switching
+ 2. Player ID Switching
 
-2.When players cross paths, IDs would swap
+   - When players cross paths, IDs would swap
 
-Solution: Built IoU + Hungarian Algorithm tracker with temporal consistency
+   - Solution: Built IoU + Hungarian Algorithm tracker with temporal consistency
 
-bonus to keep IDs stable
+     bonus to keep IDs stable
 
-False Shot Detection
+3. False Shot Detection
 
-3.Ball passing near a player without a hit was triggering shots
+    - Ball passing near a player without a hit was triggering shots
 
-Solution: Added 20-frame cooldown between shots and 200px distance threshold
+    - Solution: Added 20-frame cooldown between shots and 200px distance threshold
 
-No Padel-Specific Dataset
+4. No Padel-Specific Dataset
 
-4.No labeled padel dataset available for fine-tuning
+   - No labeled padel dataset available for fine-tuning
 
-Solution: Used COCO pretrained YOLOv8n which detects persons,
+   - Solution: Used COCO pretrained YOLOv8n which detects persons,
 
-sports balls, and tennis rackets — close enough for a working prototype
+     sports balls, and tennis rackets — close enough for a working prototype
 
-###Improvements I Would Make
+### Improvements I Would Make
 
-Fine-tune YOLO on padel-specific data for much better ball and racket detection
+  1. Fine-tune YOLO on padel-specific data for much better ball and racket detection
 
-Use pose estimation (MediaPipe) to classify shots by arm angle,
+  2. Use pose estimation (MediaPipe) to classify shots by arm angle,
 not just ball position — much more accurate
 
-Audio analysis — racket hit makes a distinct sound,
+  3. Audio analysis — racket hit makes a distinct sound,
 could use it as a trigger for shot detection
 
-Player identification using jersey color or number detection
+  4. Player identification using jersey color or number detection
 
-Court homography — map player positions to a 2D court top-view
+  5. Court homography — map player positions to a 2D court top-view
 for shot direction tracking
 
-Real-time inference — optimize with ONNX or TensorRT for live video
-
-
-
-faced, and what you would improve — which is exactly what they are evaluating. 🎯
-
+  6. Real-time inference — optimize with ONNX or TensorRT for live video
