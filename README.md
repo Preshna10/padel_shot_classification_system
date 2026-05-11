@@ -100,4 +100,259 @@ python -m app.main
 
 That's it. All output files will be saved automatically in data/output/.
 
+How It Works — Methodology
+Stage 1: Object Detection
+Used YOLOv8n (pretrained on COCO dataset)
+Detects 3 classes per frame:
+Person (class 0) → Players
+Sports Ball (class 32) → Padel Ball
+Tennis Racket (class 38) → Racket
+Confidence threshold set to 0.40
+Stage 2: Player Tracking
+Built a custom IoU-based tracker using the Hungarian Algorithm
+Tracker maintains consistent Player IDs (1 to 4) across all frames
+Uses combined cost metric:
+70% weight on IoU (box overlap)
+30% weight on centroid distance
+Temporal consistency bonus: same player keeps same ID even when partially hidden
+Players remembered for up to 120 frames (~5 seconds) when temporarily lost
+Stage 3: Shot Classification (Rule-Based)
+When the ball is within 200 pixels of a player AND at least 20 frames
+have passed since the last shot, a shot is classified:
+
+Ball Position Relative to Player	Shot Type
+Above top 30% of player box (head/shoulder area)	Serve / Smash
+Ball center is to the right of player center	Forehand
+Ball center is to the left of player center	Backhand
+Stage 4: Output Generation
+Annotated video with colored bounding boxes per player
+CSV and JSON files with shot type, frame, timestamp, player ID
+Analytics summary JSON with total counts per shot type and per player
+Bar chart PNG showing shot distribution
+Output Format
+shots.json
+JSON
+
+[
+  {
+    "frame": 87,
+    "timestamp_sec": 2.9,
+    "player_id": 1,
+    "shot_type": "forehand",
+    "ball_x": 640,
+    "ball_y": 380
+  }
+]
+shots.csv
+frame	timestamp_sec	player_id	shot_type	ball_x	ball_y
+87	2.9	1	forehand	640	380
+143	4.77	2	backhand	420	310
+analytics_summary.json
+JSON
+
+{
+  "total_shots": 12,
+  "shot_type_counts": {
+    "forehand": 5,
+    "backhand": 4,
+    "serve_or_smash": 3
+  },
+  "player_shot_counts": {
+    "Player 1": 7,
+    "Player 2": 5
+  }
+}
+Bonus Features Completed ✅
+✅ Shot count analytics (forehand vs backhand vs serve/smash)
+✅ Visual overlay on output video (colored boxes, shot banner, labels)
+✅ Bar chart dashboard (shot_counts.png)
+✅ Rule-based shot direction logic (left/right/above relative to player)
+✅ Cooldown logic to prevent duplicate shot detection
+Demo Video
+Click here to watch the demo
+
+Models
+YOLOv8n pretrained model used for detection.
+Download Model from Google Drive
+
+Challenges Faced
+Ball Detection Gaps
+
+YOLOv8n (COCO) detects sports balls but padel balls are small and fast
+Solution: Lowered confidence threshold to 0.40 and used closest ball to player
+Player ID Switching
+
+When players cross paths, IDs would swap
+Solution: Built IoU + Hungarian Algorithm tracker with temporal consistency
+bonus to keep IDs stable
+False Shot Detection
+
+Ball passing near a player without a hit was triggering shots
+Solution: Added 20-frame cooldown between shots and 200px distance threshold
+No Padel-Specific Dataset
+
+No labeled padel dataset available for fine-tuning
+Solution: Used COCO pretrained YOLOv8n which detects persons,
+sports balls, and tennis rackets — close enough for a working prototype
+Improvements I Would Make
+Fine-tune YOLO on padel-specific data for much better ball and racket detection
+Use pose estimation (MediaPipe) to classify shots by arm angle,
+not just ball position — much more accurate
+Audio analysis — racket hit makes a distinct sound,
+could use it as a trigger for shot detection
+Player identification using jersey color or number detection
+Court homography — map player positions to a 2D court top-view
+for shot direction tracking
+Real-time inference — optimize with ONNX or TensorRT for live video
+Requirements
+See requirements.txt:
+
+text
+
+ultralytics>=8.0.0
+opencv-python>=4.8.0
+numpy>=1.24.0
+pandas>=2.0.0
+matplotlib>=3.7.0
+scipy>=1.10.0
+tqdm>=4.65.0
+text
+
+
+---
+
+## PART 2: Submission Email
+
+Copy and send this email exactly:
+Subject: Padel Shot Classification System — AI/ML Internship Submission — [Your Name]
+
+Hi Layman AI Team,
+
+I have completed the AI/ML Internship Assignment.
+Please find all submission details below.
+
+─────────────────────────────────────────
+
+GITHUB REPOSITORY
+─────────────────────────────────────────
+Link: https://github.com/YOUR_USERNAME/padel-shot-classification-system
+The repository contains:
+✅ Clean modular code (9 separate files, each with one responsibility)
+✅ README.md with full setup, methodology, challenges and improvements
+✅ requirements.txt for easy installation
+✅ Sample output files in data/output/
+
+─────────────────────────────────────────
+2. DEMO VIDEO
+─────────────────────────────────────────
+Link: YOUR_GOOGLE_DRIVE_DEMO_LINK
+
+The demo shows:
+
+Terminal running the pipeline
+Output video with player bounding boxes and shot labels
+Shot CSV and JSON output files
+Bar chart analytics
+─────────────────────────────────────────
+3. OUTPUT FILES
+─────────────────────────────────────────
+
+shots.csv → Shot type, frame, timestamp, player ID
+shots.json → Same data in JSON format
+analytics_summary.json → Total counts per shot type and player
+shot_counts.png → Bar chart visualization
+annotated_output.mp4 → Full annotated video
+All files are in the GitHub repo under data/output/
+
+─────────────────────────────────────────
+4. MODEL
+─────────────────────────────────────────
+Model used: YOLOv8n (pretrained, COCO)
+Google Drive Link: YOUR_GOOGLE_DRIVE_MODEL_LINK
+
+─────────────────────────────────────────
+QUICK SUMMARY OF WHAT I BUILT
+─────────────────────────────────────────
+
+YOLOv8n detects players, ball, and racket every frame
+Custom IoU + Hungarian Algorithm tracker keeps player IDs stable
+Rule-based classifier detects Forehand, Backhand, Serve/Smash
+based on ball position relative to player bounding box
+All results saved to CSV, JSON, and annotated video
+Bonus: shot count analytics, visual overlay, bar chart
+Thank you for the opportunity.
+I am happy to walk through my code or discuss my approach.
+
+Best regards,
+[Your Full Name]
+[Your Phone Number]
+[Your Email]
+
+text
+
+
+---
+
+## PART 3: Before Submitting — Quick Checklist
+
+Go through this right now:
+GITHUB REPO
+□ All 9 files are uploaded (config, utils, detector,
+tracker, shot_classifier, analytics, visualizer,
+io_utils, main)
+□ requirements.txt is in root folder
+□ README.md is in root folder
+□ data/output/ folder has your output files
+
+DEMO VIDEO
+□ Recorded screen showing terminal running
+□ Shows output video with boxes and shot labels
+□ Shows shots.csv or shots.json file open
+□ Uploaded to Google Drive with link set to
+"Anyone with the link can view"
+
+MODEL
+□ YOLOv8n downloads automatically BUT if you have
+a custom trained model, upload .pt file to Drive
+□ Share link set to "Anyone with the link can view"
+
+OUTPUT FILES
+□ shots.csv exists with columns: frame, timestamp_sec,
+player_id, shot_type, ball_x, ball_y
+□ shots.json exists
+□ analytics_summary.json exists
+□ shot_counts.png exists
+
+text
+
+
+---
+
+## PART 4: How to Push to GitHub (If Not Done Yet)
+
+Run these commands in your VS Code terminal:
+
+```bash
+# Initialize git
+git init
+
+# Add .gitignore first (so you don't upload large files)
+echo "venv/" > .gitignore
+echo "*.mp4" >> .gitignore
+echo "*.pt" >> .gitignore
+echo "__pycache__/" >> .gitignore
+
+# Add all files
+git add .
+
+# Commit
+git commit -m "Padel Shot Classification System - Layman AI Assignment"
+
+# Connect to GitHub (create empty repo on github.com first)
+git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+
+# Push
+git branch -M main
+git push -u origin main
+You now have everything you need to submit. The README alone will impress them because it clearly explains what you built, how it works, what problems you faced, and what you would improve — which is exactly what they are evaluating. 🎯
 
