@@ -66,11 +66,13 @@ padel_shot_classification_system/
 
 ## Setup Instructions
 
+
 ### Step 1: Clone the Repository
 
    git clone https://github.com/Preshna10/padel_shot_classification_system.git
 
    cd padel_shot_classification_system 
+
 
 ### Step 2: Create Virtual Environment
 
@@ -82,9 +84,11 @@ padel_shot_classification_system/
 
    Mac/Linux: source venv/bin/activate
 
+
 ### Step 3: Install Dependencies
 
    pip install -r requirements.txt
+
 
 ### Step 4: Add Input Video
 
@@ -94,13 +98,17 @@ padel_shot_classification_system/
 
    The filename must be exactly sample_video.mp4
 
+
 ### Step 5: Run the System
 
    python -m app.main
 
    That's it. All output files will be saved automatically in data/output/.
 
+
+
 ### Methodology
+
 
 ### Stage 1: Object Detection
 
@@ -114,7 +122,8 @@ padel_shot_classification_system/
    
      - Tennis Racket (class 38) → Racket
    
-     - Confidence threshold set to 0.40
+   - Confidence threshold set to 0.40
+
 
 ### Stage 2: Player Tracking
 
@@ -128,9 +137,10 @@ padel_shot_classification_system/
 
         - 30% weight on centroid distance
 
-        - Temporal consistency bonus: same player keeps same ID even when partially hidden
+   - Temporal consistency bonus: same player keeps same ID even when partially hidden
 
-        - Players remembered for up to 120 frames (~5 seconds) when temporarily lost
+   - Players remembered for up to 120 frames (~5 seconds) when temporarily lost
+
 
 ### Stage 3: Shot Classification (Rule-Based)
 
@@ -144,6 +154,7 @@ padel_shot_classification_system/
 | Ball center is to the left of player center | Backhand |
 
 
+
 ### Stage 4: Output Generation
 
    - Annotated video with colored bounding boxes per player
@@ -153,6 +164,8 @@ padel_shot_classification_system/
    - Analytics summary JSON with total counts per shot type and per player
 
    - Bar chart PNG showing shot distribution
+
+
 
 
 ### Bonus Features 
@@ -167,14 +180,20 @@ padel_shot_classification_system/
 
   - Cooldown logic to prevent duplicate shot detection
 
+
+
 ### Demo Video
    Click here to watch the demo
+
+
 
 ### Models
 
    YOLOv8n pretrained model used for detection.
 
    Download Model from Google Drive
+
+
 
 ### Challenges Faced
 
@@ -201,6 +220,8 @@ padel_shot_classification_system/
       - No labeled padel dataset available for fine-tuning
 
       - Solution: Used COCO pretrained YOLOv8n which detects persons, sports balls, and tennis rackets — close enough for a working prototype
+
+
 
 ### Improvements I Would Make
 
