@@ -100,9 +100,9 @@ python -m app.main
 
 That's it. All output files will be saved automatically in data/output/.
 
-###Methodology
+### Methodology
 
-###Stage 1: Object Detection
+### Stage 1: Object Detection
 
 Used YOLOv8n (pretrained on COCO dataset)
 
@@ -116,25 +116,25 @@ Detects 3 classes per frame:
    
    Confidence threshold set to 0.40
 
-###Stage 2: Player Tracking
+### Stage 2: Player Tracking
 
-Built a custom IoU-based tracker using the Hungarian Algorithm
+1. Built a custom IoU-based tracker using the Hungarian Algorithm
 
-Tracker maintains consistent Player IDs (1 to 4) across all frames
+2. Tracker maintains consistent Player IDs (1 to 4) across all frames
 
-Uses combined cost metric:
+3. Uses combined cost metric:
 
-70% weight on IoU (box overlap)
+a.70% weight on IoU (box overlap)
 
-30% weight on centroid distance
+b.30% weight on centroid distance
 
-Temporal consistency bonus: same player keeps same ID even when partially hidden
+c.Temporal consistency bonus: same player keeps same ID even when partially hidden
 
-Players remembered for up to 120 frames (~5 seconds) when temporarily lost
+d.Players remembered for up to 120 frames (~5 seconds) when temporarily lost
 
-###Stage 3: Shot Classification (Rule-Based)
+### Stage 3: Shot Classification (Rule-Based)
 
-When the ball is within 200 pixels of a player AND at least 20 frames
+a.When the ball is within 200 pixels of a player AND at least 20 frames
 
 have passed since the last shot, a shot is classified:
 
@@ -146,17 +146,17 @@ Ball center is to the right of player center	Forehand
 
 Ball center is to the left of player center	Backhand
 
-###Stage 4: Output Generation
+### Stage 4: Output Generation
 
-Annotated video with colored bounding boxes per player
+a.Annotated video with colored bounding boxes per player
 
-CSV and JSON files with shot type, frame, timestamp, player ID
+b.CSV and JSON files with shot type, frame, timestamp, player ID
 
-Analytics summary JSON with total counts per shot type and per player
+c.Analytics summary JSON with total counts per shot type and per player
 
-Bar chart PNG showing shot distribution
+d.Bar chart PNG showing shot distribution
 
-Output Format
+### Output Format
 
 shots.json
 
@@ -192,7 +192,7 @@ analytics_summary.json
 }
 
 
-###Bonus Features Completed ✅
+### Bonus Features Completed ✅
 
 ✅ Shot count analytics (forehand vs backhand vs serve/smash)
 
@@ -204,10 +204,10 @@ analytics_summary.json
 
 ✅ Cooldown logic to prevent duplicate shot detection
 
-###Demo Video
+### Demo Video
 Click here to watch the demo
 
-###Models
+### Models
 
 YOLOv8n pretrained model used for detection.
 
@@ -260,19 +260,6 @@ for shot direction tracking
 
 Real-time inference — optimize with ONNX or TensorRT for live video
 
-Requirements
-See requirements.txt:
-
-text
-
-ultralytics>=8.0.0
-opencv-python>=4.8.0
-numpy>=1.24.0
-pandas>=2.0.0
-matplotlib>=3.7.0
-scipy>=1.10.0
-tqdm>=4.65.0
-text
 
 
 faced, and what you would improve — which is exactly what they are evaluating. 🎯
