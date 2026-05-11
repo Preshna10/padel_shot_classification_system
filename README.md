@@ -29,6 +29,9 @@ This system analyzes padel match video footage and automatically:
 
 ## Project Structure
 
+## Project Structure
+
+```text
 padel_shot_classification_system/
 │
 ├── app/
@@ -57,7 +60,7 @@ padel_shot_classification_system/
 ├── yolov8n.pt                     # YOLOv8 pretrained model weights
 ├── requirements.txt              # Python dependencies
 └── README.md                     # Project documentation
-
+```
 
 ---
 
