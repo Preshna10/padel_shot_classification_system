@@ -182,8 +182,9 @@ padel_shot_classification_system/
 
 
 
-### Demo Video
-   Click here to watch the demo
+### Output Video
+   Click here to watch the output
+   https://drive.google.com/file/d/1jjx9zILhU5pQeza46ehjXpKmJO7j_cEU/view?usp=sharing
 
 
 
@@ -192,6 +193,7 @@ padel_shot_classification_system/
    YOLOv8n pretrained model used for detection.
 
    Download Model from Google Drive
+   https://drive.google.com/file/d/1PhGedzuyEfmv8pBJfsQu9UZUO10kNYf_/view?usp=sharing
 
 
 
