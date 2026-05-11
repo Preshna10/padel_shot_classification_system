@@ -32,29 +32,31 @@ This system analyzes padel match video footage and automatically:
 padel_shot_classification_system/
 │
 ├── app/
-│ ├── init.py # Package init
-│ ├── config.py # All settings and paths
-│ ├── utils.py # Helper functions
-│ ├── detector.py # YOLOv8 object detection
-│ ├── tracker.py # IoU-based player tracker
-│ ├── shot_classifier.py # Rule-based shot classification
-│ ├── analytics.py # Shot count analytics + chart
-│ ├── visualizer.py # Video annotation/drawing
-│ ├── io_utils.py # Save CSV, JSON, files
-│ └── main.py # Main pipeline entry point
+│   ├── __init__.py                # Package initialization
+│   ├── config.py                  # Configuration settings and paths
+│   ├── utils.py                   # Helper utility functions
+│   ├── detector.py                # YOLOv8 object detection module
+│   ├── tracker.py                 # IoU-based player tracking
+│   ├── shot_classifier.py         # Rule-based shot classification
+│   ├── analytics.py               # Shot analytics and chart generation
+│   ├── visualizer.py              # Video annotation and drawing utilities
+│   ├── io_utils.py                # CSV, JSON, and file handling
+│   └── main.py                    # Main pipeline entry point
 │
 ├── data/
-│ ├── input/
-│ │ └── sample_video.mp4 ← Place your input video here
-│ └── output/
-│ ├── annotated_output.mp4 ← Output video with overlays
-│ ├── shots.csv ← Shot predictions table
-│ ├── shots.json ← Shot predictions JSON
-│ ├── analytics_summary.json← Shot counts summary
-│ └── shot_counts.png ← Bar chart visualization
-├── yolov8n.pt  
-├── requirements.txt
-└── README.md
+│   ├── input/
+│   │   └── sample_video.mp4       # Input video file
+│   │
+│   └── output/
+│       ├── annotated_output.mp4   # Annotated output video
+│       ├── shots.csv              # Shot predictions in CSV format
+│       ├── shots.json             # Shot predictions in JSON format
+│       ├── analytics_summary.json # Shot statistics summary
+│       └── shot_counts.png        # Shot count bar chart
+│
+├── yolov8n.pt                     # YOLOv8 pretrained model weights
+├── requirements.txt              # Python dependencies
+└── README.md                     # Project documentation
 
 
 ---
